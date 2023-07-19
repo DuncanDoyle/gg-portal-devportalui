@@ -12,9 +12,9 @@ DOCKER_IMAGE_TAG=$1
 echo "Source nvm.sh to make nvm available to our script.\n"
 . ~/.nvm/nvm.sh
 
-echo "Set Yarn and NVM versions.\n"
+echo "Set NVM version.\n"
 
-yarn set version 1.22.19
+# yarn set version 1.22.19
 nvm use 16
 
 
@@ -55,7 +55,8 @@ CONTAINER_IMAGE_NAME="portal-frontend"
 # make build-ui-image
 
 # Not using Makefile build-ui-image, as we want to do a multi-arch build.
-docker buildx build --platform linux/amd64,linux/arm64 -t duncandoyle/$CONTAINER_IMAGE_NAME --push .
+#docker buildx build --platform linux/amd64,linux/arm64 -t duncandoyle/$CONTAINER_IMAGE_NAME:$1 -t duncandoyle/$CONTAINER_IMAGE_NAME:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 --push -t duncandoyle/$CONTAINER_IMAGE_NAME -t duncandoyle/$CONTAINER_IMAGE_NAME:$1  .
 #docker buildx build --platform linux/amd64,linux/arm64 -t $CONTAINER_IMAGE_NAME --load .
 
-docker tag $CONTAINER_IMAGE_NAME:latest $CONTAINER_IMAGE_NAME:$1
+#docker tag $CONTAINER_IMAGE_NAME:latest $CONTAINER_IMAGE_NAME:$1
