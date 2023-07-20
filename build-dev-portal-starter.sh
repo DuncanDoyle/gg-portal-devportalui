@@ -56,7 +56,7 @@ CONTAINER_IMAGE_NAME="portal-frontend"
 
 # Not using Makefile build-ui-image, as we want to do a multi-arch build.
 #docker buildx build --platform linux/amd64,linux/arm64 -t duncandoyle/$CONTAINER_IMAGE_NAME:$1 -t duncandoyle/$CONTAINER_IMAGE_NAME:latest --push .
-docker buildx build --platform linux/amd64,linux/arm64 --push -t duncandoyle/$CONTAINER_IMAGE_NAME -t duncandoyle/$CONTAINER_IMAGE_NAME:$1  .
+docker buildx build --platform linux/amd64,linux/arm64 --push -t duncandoyle/$CONTAINER_IMAGE_NAME -t duncandoyle/$CONTAINER_IMAGE_NAME:$1 .
 #docker buildx build --platform linux/amd64,linux/arm64 -t $CONTAINER_IMAGE_NAME --load .
 
 #docker tag $CONTAINER_IMAGE_NAME:latest $CONTAINER_IMAGE_NAME:$1
